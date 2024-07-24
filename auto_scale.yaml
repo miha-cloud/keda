@@ -1,0 +1,14 @@
+kind: HTTPScaledObject
+apiVersion: http.keda.sh/v1alpha1
+metadata:
+    name: nginx-scaledobject
+spec:
+    hosts: 
+    - hello-world.info
+    scaleTargetRef:
+        deployment: nginx-deployment
+        service: nginx-deployment
+        port: 80
+    replicas:
+        min: 0    
+        max: 5
